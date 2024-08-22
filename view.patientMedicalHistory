@@ -1,0 +1,7 @@
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_patientmedicalhistory` AS select `p`.`patient_id` 
+AS `patient_id`,`p`.`first_name` 
+AS `first_name`,`p`.`last_name` 
+AS `last_name`,`hr`.`date_of_record` 
+AS `date_of_record`,`hr`.`details` 
+AS `details`,`hr`.`health_status` 
+AS `health_status` from (`patient` `p` join `healthrecord` `hr` on((`p`.`patient_id` = `hr`.`patient_id`))) order by `hr`.`date_of_record` desc
