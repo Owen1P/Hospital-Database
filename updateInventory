@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateInventoryLevel`(IN new_item_id INT, IN new_quantity INT)
+BEGIN
+    UPDATE inventoryitem
+    SET quantity = new_quantity
+    WHERE item_id = new_item_id; 
+END
