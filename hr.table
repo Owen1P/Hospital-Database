@@ -1,0 +1,13 @@
+CREATE TABLE `healthrecord` (
+  `record_id` int NOT NULL AUTO_INCREMENT,
+  `patient_id` int DEFAULT NULL,
+  `date_of_record` date DEFAULT NULL,
+  `details` text,
+  `doctor_id` int DEFAULT NULL,
+  `health_status` enum('Healthy','Not Healthy','Under Observation','Recovering') DEFAULT NULL,
+  PRIMARY KEY (`record_id`),
+  KEY `patient_id` (`patient_id`),
+  KEY `doctor_id` (`doctor_id`),
+  CONSTRAINT `healthrecord_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`),
+  CONSTRAINT `healthrecord_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`doctor_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
