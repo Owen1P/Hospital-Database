@@ -1,0 +1,8 @@
+CREATE TABLE `supplier` (
+  `supplier_id` int NOT NULL AUTO_INCREMENT,
+  `company_name` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`supplier_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
