@@ -1,0 +1,6 @@
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` 
+SQL SECURITY DEFINER VIEW `view_detaileddoctorschedules` AS select `d`.`doctor_id` AS `doctor_id`,`d`.`first_name` AS 
+`doctor_first_name`,`d`.`last_name` AS `doctor_last_name`,`d`.`specialization` AS `specialization`,`a`.`date_time` AS 
+`appointment_time`,`a`.`status` AS `appointment_status`,`p`.`first_name` AS `patient_first_name`,`p`.`last_name` AS 
+`patient_last_name` from ((`doctor` `d` join `appointment` `a` on((`d`.`doctor_id` = `a`.`doctor_id`))) join `patient` `p` 
+ on((`a`.`patient_id` = `p`.`patient_id`))) where (`a`.`status` = 'Scheduled') order by `a`.`date_time`
