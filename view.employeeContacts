@@ -1,0 +1,25 @@
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_employeecontacts` AS select concat('DOC_',`doctor`.`doctor_id`) 
+AS `employee_id`,`doctor`.`first_name` 
+AS `first_name`,`doctor`.`last_name` 
+AS `last_name`,'Doctor' 
+AS `role`,`doctor`.`phone_number` 
+AS `phone_number`,`doctor`.`email` 
+AS `email` from `doctor` union all select concat('REC_',`receptionist`.`receptionist_id`) 
+AS `employee_id`,`receptionist`.`first_name` 
+AS `first_name`,`receptionist`.`last_name` 
+AS `last_name`,'Receptionist' 
+AS `role`,`receptionist`.`phone_number` 
+AS `phone_number`,`receptionist`.`email` 
+AS `email` from `receptionist` union all select concat('NUR_',`nurse`.`nurse_id`) 
+AS `employee_id`,`nurse`.`first_name` 
+AS `first_name`,`nurse`.`last_name` 
+AS `last_name`,'Nurse' 
+AS `role`,`nurse`.`phone_number` 
+AS `phone_number`,`nurse`.`email` 
+AS `email` from `nurse` union all select concat('ADM_',`administrator`.`admin_id`) 
+AS `employee_id`,`administrator`.`first_name` 
+AS `first_name`,`administrator`.`last_name` 
+AS `last_name`,'Administrator' 
+AS `role`,`administrator`.`phone_number` 
+AS `phone_number`,`administrator`.`email` 
+AS `email` from `administrator`
