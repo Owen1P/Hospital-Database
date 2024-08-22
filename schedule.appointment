@@ -1,0 +1,10 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `schedule_appointment`(
+    IN patient_id INT, 
+    IN doctor_id INT, 
+    IN appointment_time DATETIME, 
+    IN appointment_type VARCHAR(100)
+)
+BEGIN
+    INSERT INTO Appointment(patient_id, doctor_id, date_time, appointment_type, status)
+    VALUES (patient_id, doctor_id, appointment_time, appointment_type, 'Scheduled');
+END
