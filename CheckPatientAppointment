@@ -1,0 +1,10 @@
+CREATE DEFINER=`root`@`localhost` FUNCTION `CheckPatientAppointment`(in_patient_id INT) RETURNS int
+    READS SQL DATA
+BEGIN
+  DECLARE appointment_count INT;
+  SELECT COUNT(*)
+  INTO appointment_count
+  FROM Appointment
+  WHERE patient_id = in_patient_id AND status = 'Scheduled';
+  RETURN appointment_count;
+END
