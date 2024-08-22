@@ -1,0 +1,15 @@
+CREATE TABLE `inventoryitem` (
+  `item_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `managed_by_nurse_id` int DEFAULT NULL,
+  `supplier_id` int DEFAULT NULL,
+  `reorder_level` int DEFAULT NULL,
+  PRIMARY KEY (`item_id`),
+  KEY `managed_by_nurse_id` (`managed_by_nurse_id`),
+  KEY `fk_supplier` (`supplier_id`),
+  CONSTRAINT `fk_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`),
+  CONSTRAINT `fk_supplier_id` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`),
+  CONSTRAINT `inventoryitem_ibfk_1` FOREIGN KEY (`managed_by_nurse_id`) REFERENCES `nurse` (`nurse_id`)
+)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci 
